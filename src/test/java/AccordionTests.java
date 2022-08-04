@@ -4,10 +4,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.MainPage;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import pageobject.MainPage;
 
 @RunWith(Parameterized.class)
 public class AccordionTests {
+    private final String urlScooter = "https://qa-scooter.praktikum-services.ru/";
     private final int num;
     private WebDriver driver;
 
@@ -33,10 +35,10 @@ public class AccordionTests {
     public void compareAnswersAccordion() {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(urlScooter);
 
-        MainPage obMainPage = new MainPage(driver);
-        obMainPage.compareAccordionList(num);
+        MainPage objMainPage = new MainPage(driver);
+        objMainPage.compareAccordionList(num);
     }
 
     @After
